@@ -13,6 +13,7 @@ const User1 = new Usuario('email@teste.com', 'senha123');
 const Adm1 = new Admin('email@teste.com', 'senha123');
 console.log(User1.isAdmin()) // false
 console.log(Adm1.isAdmin()) // true
+
 2) A partir do seguinte vetor e utilizando os métodos de array (map, reduce, filter e find):
 
 const usuarios = [
@@ -41,6 +42,7 @@ Multiplique a idade de todos usuários por dois e depois realize um filtro nos u
  { nome: 'Diego', idade: 46, empresa: 'Rocketseat' },
  { nome: 'Gabriel', idade: 30, empresa: 'Rocketseat' },
 ]
+
 3) Converta as funções nos seguintes trechos de código em Arrow Functions:
 
 // 3.1
@@ -70,6 +72,7 @@ const promise = function() {
  return resolve();
  })
 }
+
 4) Exercícios de Desestruturação
 
 Desestruturação Simples
@@ -99,6 +102,7 @@ mostraInfo({ nome: 'Diego', idade: 23 })
 Utilize a desestruturação nos parâmetros da função para buscar o nome e idade do usuário separadamente e a função poder retornar apenas:
 
 return `${nome} tem ${idade} anos.`;
+
 5) Utilizando o operador de rest/spread (...) realize as seguintes operações:
 
 5.1 Rest
@@ -134,6 +138,7 @@ Crie uma variável usuario3 que contenha todos os dados do usuário porém com c
 const usuario = 'Diego';
 const idade = 23;
 console.log('O usuário ' + usuario + ' possui ' + idade + ' anos');
+
 7) Utilize a sintaxe curta de objetos (Object Short Syntax) no seguinte objeto:
 
 const nome = 'Diego';
@@ -143,73 +148,3 @@ const usuario = {
  idade: idade,
  cidade: 'Rio do Sul',
 };
-Exercícios: Módulo 02
-1) Crie um arquivo chamado functions.js com o seguinte conteúdo:
-
-export const idade = 23;
-export default class Usuario {
- static info() {
- console.log('Apenas teste');
- }
-}
-1.1 Agora em seu arquivo principal import apenas a classe Usuario renomeando-a para ClasseUsuario e chame a função info()
-
-1.2 Em seu arquivo principal importe a variável de idade e exiba a mesma em tela;
-
-1.3 Em seu arquivo principal importe tanto a classe quanto a variável idade e renomeie a variável idade para IdadeUsuario
-
-Exercícios: Módulo 03
-Todos os exercícios abaixo necessitam que você esteja com o plugin do Async/Await do Babel e o babel-polyfill devidamente configurados. Em alguns exercícios é necessário instalar o Axios.
-
-Exercício
-Transforme os seguintes trechos de código utilizando async/await:
-
-// Função delay aciona o .then após 1s
-const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
-function umPorSegundo() {
- delay().then(() => {
- console.log('1s');
- delay().then(() => {
- console.log('2s');
- delay().then(() => {
- console.log('3s');
- });
- })
- });
-}
-umPorSegundo();
-import axios from 'axios';
-function getUserFromGithub(user) {
- axios.get(`https://api.github.com/users/${user}`)
- .then(response => {
- console.log(response.data);
- })
- .catch(err => {
- console.log('Usuário não existe');
- })
-}
-getUserFromGithub('diego3g');
-getUserFromGithub('diego3g124123');
-class Github {
- static getRepositories(repo) {
- axios.get(`https://api.github.com/repos/${repo}`)
- .then(response => {
- console.log(response.data);
- })
- .catch(err => {
- console.log('Repositório não existe');
-  })
- }
-}
-Github.getRepositories('rocketseat/rocketseat.com.br');
-Github.getRepositories('rocketseat/dslkvmskv');
-const buscaUsuario = usuario => {
- axios.get(`https://api.github.com/users/${user}`)
- .then(response => {
- console.log(response.data);
- })
- .catch(err => {
- console.log('Usuário não existe');
- });
-}
-buscaUsuario('diego3g');
